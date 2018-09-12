@@ -1,0 +1,130 @@
+.header{
+  background-color: #007acc;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: white !important;
+  z-index: 2 !important
+}
+.login-form{
+  margin-top: 100px;
+}
+.buttons{
+  background-color: #007acc;
+  color: white;
+  width:150px;
+  border-radius:2px !important;
+}
+.form-control{
+  border-radius: 2px !important;
+}
+.auth_toggle{
+  cursor: pointer;
+}
+.register{
+  margin-top:60px;
+} 
+.side{
+  margin-top: 50px;
+}
+.side-options{
+  font-size:15px;
+  margin-left: 25%;
+  padding: 10px;
+}
+.side-options > label:hover{
+ color:#007acc;
+ cursor: pointer;
+ font-weight: bolder;
+}
+.side-bar{
+  background-color: white;
+  width: 100%;
+}
+.custom-file{
+  margin-top:40px !important;
+  width: 60% !important;
+  margin-left:20%;
+}
+.upload-box{
+  background-color: white;
+margin-top: 25px;
+height:180px;
+border-radius:2px;
+}
+.status-box{
+  height:370px;
+  background-color: white;
+  border-radius: 2px;
+  padding:10px;
+}
+.label{
+  margin-left:15px;
+}
+.stats > tr > td{
+  font-size: 20px;
+  text-align: center;
+  padding: 30px;
+  color:grey;
+}
+.search-button{
+  background-color: #007acc;
+  color: white;
+  width:80px;
+  border-radius:2px !important;
+  border: 1px solid azure !important;
+}
+.search-bar{
+  width: 600px !important;
+  margin-left: 200px;
+  border-radius: 2px;
+}
+.search-container{
+  float:left;
+  width: 600px;
+}
+.dash-icons{
+  float: right;
+  margin-left: 320px;
+}
+.dash-icons > img{
+  margin-left:20px;
+  margin-top:8px;
+}
+/* .search-results{
+  width: 600px;
+  margin-left:200px;
+  height: 500px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: absolute;
+  margin-top: 10px;
+  background-color: white;
+} */
+.search-results{
+  position: absolute;
+    background: white;
+    height: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius:2px;
+    position: absolute;
+    margin-top:58px;
+    width: 400px;
+    margin-left:355px;   
+    z-index:3; 
+    display: block;
+    border: 1px solid white;
+}
+.search-results:after {
+	bottom: 100%;
+    left: 50%;
+    z-index:1;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: white;
+	border-width: 10px;
+    margin-left: -10px;
+    z-index: 1; 
+}
