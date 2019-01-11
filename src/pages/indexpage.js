@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
 // import ReactDOM from 'react-dom';
-import { Header } from "../components/elements";
+import { FrontBar,Footer } from "../components/elements";
 import { Login, Register } from "../components/authentication";
 import { Container, Row, Col } from "reactstrap";
+import register from './../registerServiceWorker';
+import { postData } from './../services/request';
 
 export class Indexpage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             currentView: null,
-            loggedin:"false"
+            loggedin:"false",
+            firstname:"",
+            middlename:"",
+            lastname:"",
+            email:"",
+            username:"",
+            password:"",
+            v_password:""
         };
         // this.login = this.login.bind(this);
     }
@@ -18,15 +27,32 @@ export class Indexpage extends Component {
         event.preventDefault();
         console.log("Email: ", event.target.username.value);
         console.log("Password: ", event.target.password.value);
-            props.onLoginActive();
-        
+           
+        props.onLoginActive();
     }
-
+    registerChange(event) {
+        event.preventDefault();
+        this.setState({[event.target.name]:[event.target.value]});
+    }
+    register(event){
+        event.preventDefault();
+        var regData = {
+            firstame: this.state.username,
+            middlename : this. state.middlename,
+            lastname: this.state.lastname,
+            username: this.state.username,
+            email:this.state.email,
+            password: this.state.password,
+            v_password: this.state.v_password
+        }
+        var response = postData("/regiser",regData);
+                console.log(response);
+    }
     showLogin() {
         this.setState(() => ({ currentView: <Login onsubmit={(event) => this.login(event, this.props)} /> }));
     }
     showRegister() {
-        this.setState({ currentView: <Register /> });
+        this.setState({ currentView: <Register onsubmitReg={(event) => this.registerChange(event)} submitReg={(event) => this.register(event)}/> });
     }
     componentDidMount() {
         this.showLogin();
@@ -35,15 +61,13 @@ export class Indexpage extends Component {
     // login(){
 
     // }
-    register() {
-
-    }
+   
     render() {
         
         return (
             <div id="body-rep">
                 <Container fluid={true}>
-                    
+                        <FrontBar/>
                     <Row>
                         <Col md={9}>
                         </Col>
@@ -55,8 +79,15 @@ export class Indexpage extends Component {
                             {/* <p>{this.props.loginVals.username}</p> */}
                         </Col>
                     </Row>
+                    <Row>
+                    
+                        <Col md={12}>
+                        
+                        
+                        </Col>
+                    </Row>
                 </Container>
-
+                <Footer/>
             </div>
         );
     }

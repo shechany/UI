@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Navbar, NavbarToggler, NavbarBrand, Collapse } from "reactstrap";
 import { ReactDOM } from 'react-dom';
 
+
 var like = require( "../assets/icons/like.png");
 var live = require("../assets/icons/live.png");
 var trending = require("../assets/icons/trending.png");
@@ -28,14 +29,16 @@ export class Header extends Component {
             isOpen: !this.state.isOpen
         });
     }
-
+// componentDidMount(){
+//     alert(this.props.dropNotifications.bind(this));
+// }
     render() {
         return (
             <div>
                
                 <Navbar light expand="md" className="header fixed-top">
                     <NavbarBrand href="/">Info</NavbarBrand>
-                    <BarProperties call={this.props.activateResults}/>
+                    <BarProperties call={this.props.activateResults} note={this.props.notificationBar}/>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                     </Collapse>
@@ -68,10 +71,6 @@ export class BarProperties extends Component{
 constructor(props){
     super(props)
 }
-componentDidMount(){
-   alert(this.props.activateResults);
-    
-}
 
 
     render(){
@@ -80,15 +79,14 @@ componentDidMount(){
     <div>
     <div className="search-container">
     <span>
-    <input type="text" class="form-control search-bar" id="search-input" placeholder="Search for..." aria-label="Search for..." />
+    <input type="text" class="form-control search-bar" id="search-input" placeholder="Search for..." aria-label="Search for..." onKeyUp={this.props.call.bind(this)}/>
     {/* <div className="search-results" id="results-modal" tabIndex="1">
-            
 </div> */}
     </span>
     </div>
     <span className="dash-icons">
     <img src={friend} alt=""/>
-          <img src={notification} alt=""/>
+          <img src={notification} alt="" onMouseOver={this.props.note.bind(this)}/>
           <img src={settings} alt=""/>
     </span>
     
@@ -97,4 +95,29 @@ componentDidMount(){
         ); 
        }
 }
+ export class FrontBar extends Component{
+     constructor(props){
+         super(props)
+     }
 
+     render(){
+         return(
+             <div className="front-bar fixed-top">
+                       
+             </div>
+         )
+     }
+ }
+
+ export class Footer extends Component{
+    constructor(props){
+        super(props)
+    }
+    render(){
+        return(
+            <div className="footer">
+
+            </div>
+        )
+    }
+ }
